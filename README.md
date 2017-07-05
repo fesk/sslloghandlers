@@ -2,7 +2,7 @@
 Python logging handlers that support SSL / HTTPS connections - one replacing HTTPHandler with a version that supports SSL and one providing a socket-based emitter that connects over SSL.
 
 ### HTTPHandler with SSL support - Use
-*httpshandler.HTTPHandler(host, url, method, secure, strict, json)*
+*sslloghandler.HTTPHandler(host, url, method, secure, strict, json)*
 
 *host* hostname:port
 
@@ -33,20 +33,14 @@ You can create a local listener using (you'll need to create the self-signed cer
 $ openssl s_server -accept 4567 -cert /path/to/pemfile.pem
 ```
 
-### HTTPHandler with SSL support - Use
-*httpshandler.HTTPHandler(host, url, method, secure, strict, json)*
+### SocketHandler with SSL support - Use
+*sslloghandler.SocketHandler(host, secure, strict)*
 
 *host* hostname:port
-
-*url* path to send request to
-
-*method* GET or POST (note if setting json to True then the request will always be a POST)
 
 *secure* True|False - whether to use SSL/TLS
 
 *strict* True|False - whether to perform certificate verification
-
-*json* True|False - send as JSON or URL encoded.  If True, request will always be a POST
 
 
 ### SocketHandler Example
